@@ -440,47 +440,47 @@ export default function Home() {
             >
 
               {/* Left column */}
-              <div className="flex flex-col gap-9 p-12 flex-1 min-w-0">
+              <div className="flex flex-col gap-5 p-12 flex-1 min-w-0">
 
                 <h2
-                  className="font-black text-white uppercase leading-[0.90em] tracking-[-0.04em]"
+                  className="font-black text-white uppercase leading-[0.90em] tracking-[-0.04em] mb-2"
                   style={{ fontSize: "clamp(38px, 4.5vw, 62px)" }}
                 >
                   Как это<br />работает?
                 </h2>
 
-                <div className="flex flex-col gap-7">
+                <div
+                  className="rounded-xl p-6 flex flex-col gap-3"
+                  style={{ background: "rgba(255,255,255,0.04)" }}
+                >
+                  <p className="text-[15px] font-semibold tracking-[-0.02em] text-white">
+                    Принцип генерации энергии
+                  </p>
+                  <p className="text-[14px] leading-[1.6em] tracking-[-0.01em] text-[#6070a0]">
+                    Вихри создают силы, вызывающие колебания конструкции. Это
+                    усиливает передачу энергии генератору и повышает эффективность генерации.
+                  </p>
+                </div>
 
-                  <div className="flex flex-col gap-3">
-                    <p className="text-[15px] font-semibold tracking-[-0.02em] text-white">
-                      Принцип генерации энергии
-                    </p>
-                    <p className="text-[14px] leading-[1.6em] tracking-[-0.01em] text-[#6070a0]">
-                      Вихри создают силы, вызывающие колебания конструкции. Это
-                      усиливает передачу энергии генератору и повышает эффективность генерации.
-                    </p>
-                  </div>
-
-                  <div className="h-px bg-white/[0.07]" />
-
-                  <div className="flex flex-col gap-3">
-                    <p className="text-[15px] font-semibold tracking-[-0.02em] text-white">
-                      Магнитные амортизаторы (b)
-                    </p>
-                    <p className="text-[14px] leading-[1.6em] tracking-[-0.01em] text-[#6070a0]">
-                      Магнитная амортизация снижает износ, стабилизирует колебания и
-                      адаптируется к ветру, повышая эффективность системы.
-                    </p>
-                  </div>
-
+                <div
+                  className="rounded-xl p-6 flex flex-col gap-3"
+                  style={{ background: "rgba(255,255,255,0.04)" }}
+                >
+                  <p className="text-[15px] font-semibold tracking-[-0.02em] text-white">
+                    Магнитные амортизаторы (b)
+                  </p>
+                  <p className="text-[14px] leading-[1.6em] tracking-[-0.01em] text-[#6070a0]">
+                    Магнитная амортизация снижает износ, стабилизирует колебания и
+                    адаптируется к ветру, повышая эффективность системы.
+                  </p>
                 </div>
 
               </div>
 
               {/* Center — schematic image */}
               <div
-                className="shrink-0 flex items-end justify-center"
-                style={{ width: "clamp(240px, 33vw, 430px)" }}
+                className="shrink-0 flex items-center justify-center"
+                style={{ width: "clamp(240px, 33vw, 430px)", marginTop: "40px" }}
               >
                 <Image
                   src={эскизКакImg}

@@ -295,38 +295,44 @@ export default function Home() {
             VORTEX OSCILLATIONS SECTION
         ════════════════════════════════════════════════ */}
         <section id="technology" className="px-12 pt-24 pb-20">
-          <div className="max-w-[1280px] mx-auto flex flex-col gap-12">
+          <div className="max-w-[1280px] mx-auto">
 
-            <div className="flex gap-14 items-start flex-wrap">
-              <h2
-                className="font-black text-white uppercase leading-[0.92em] tracking-[-0.04em] shrink-0"
-                style={{ fontSize: "clamp(52px, 6.5vw, 86px)" }}
-              >
-                Вихревые<br />колебания
-              </h2>
-
-              <p className="text-[17px] leading-[1.6em] tracking-[-0.02em] text-[#bababa] max-w-[520px] pt-2">
-                Когда ветер обтекает цилиндрический объект, позади него
-                образуются чередующиеся вихри — этот эффект называется
-                вихреобразованием Кармана. Вихри создают попеременные силы,
-                которые заставляют объект колебаться.
-              </p>
-            </div>
-
-            {/* Wave image strip */}
             <div
-              className="relative w-full overflow-hidden rounded-2xl"
-              style={{ height: "clamp(170px, 22vw, 270px)" }}
+              className="rounded-2xl p-12 flex flex-col gap-10"
+              style={{ background: "linear-gradient(135deg, #0a0f28 0%, #060a1a 100%)" }}
             >
-              <Image
-                src={волныImg}
-                alt="Вихревые колебания Кармана"
-                fill
-                className="object-cover object-center"
-                sizes="(max-width: 1280px) 100vw, 1280px"
-              />
-            </div>
 
+              <div className="flex gap-14 items-start flex-wrap">
+                <h2
+                  className="font-black text-white uppercase leading-[0.92em] tracking-[-0.04em] shrink-0"
+                  style={{ fontSize: "clamp(52px, 6.5vw, 86px)" }}
+                >
+                  Вихревые<br />колебания
+                </h2>
+
+                <p className="text-[17px] leading-[1.6em] tracking-[-0.02em] text-[#bababa] max-w-[520px] pt-2">
+                  Когда ветер обтекает цилиндрический объект, позади него
+                  образуются чередующиеся вихри — этот эффект называется
+                  вихреобразованием Кармана. Вихри создают попеременные силы,
+                  которые заставляют объект колебаться.
+                </p>
+              </div>
+
+              {/* Wave image strip */}
+              <div
+                className="relative w-full overflow-hidden rounded-xl"
+                style={{ height: "clamp(170px, 22vw, 270px)" }}
+              >
+                <Image
+                  src={волныImg}
+                  alt="Вихревые колебания Кармана"
+                  fill
+                  className="object-cover object-center"
+                  sizes="(max-width: 1280px) 100vw, 1280px"
+                />
+              </div>
+
+            </div>
           </div>
         </section>
 
@@ -349,12 +355,15 @@ export default function Home() {
                 </p>
 
                 <div className="flex items-start gap-4">
-                  <span
-                    className="text-[#365EFF] font-black shrink-0"
-                    style={{ fontSize: "clamp(44px, 5vw, 68px)", lineHeight: "0.92em" }}
+                  <svg
+                    viewBox="0 0 22 38"
+                    fill="none"
+                    aria-hidden="true"
+                    className="shrink-0"
+                    style={{ width: "clamp(28px, 3.2vw, 44px)", height: "auto", marginTop: "4px" }}
                   >
-                    +
-                  </span>
+                    <path d="M13 0L0 21H9.5L7.5 38L22 17H12.5L13 0Z" fill="#365EFF" />
+                  </svg>
                   <h2
                     className="font-black text-white uppercase leading-[0.92em] tracking-[-0.04em]"
                     style={{ fontSize: "clamp(44px, 5vw, 68px)" }}
@@ -456,10 +465,10 @@ export default function Home() {
 
                   <div className="flex flex-col gap-3">
                     <p className="text-[15px] font-semibold tracking-[-0.02em] text-white">
-                      Магнитные энергизаторы (b)
+                      Магнитные амортизаторы (b)
                     </p>
                     <p className="text-[14px] leading-[1.6em] tracking-[-0.01em] text-[#6070a0]">
-                      Магнитная акцелерация снижает хаос, стабилизирует колебания и
+                      Магнитная амортизация снижает износ, стабилизирует колебания и
                       адаптируется к ветру, повышая эффективность системы.
                     </p>
                   </div>

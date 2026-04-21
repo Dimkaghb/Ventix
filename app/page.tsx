@@ -1,4 +1,17 @@
+"use client";
+
+import { useState, type CSSProperties } from "react";
+import dynamic from "next/dynamic";
 import Image from "next/image";
+import Link from "next/link";
+
+const FullscreenPdfModal = dynamic(
+  () =>
+    import("@/app/components/fullscreen-pdf-modal").then(
+      (module) => module.FullscreenPdfModal,
+    ),
+  { ssr: false },
+);
 
 // Local asset imports
 import фонImg from "@/assets/фон.png";
@@ -111,8 +124,18 @@ const NAV_LINKS = [
 
 // ════════════════════════════════════════════════════════════
 export default function Home() {
+  const [isResearchOpen, setIsResearchOpen] = useState(false);
+  const scrollToFooter = () => {
+    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <div className="relative min-h-screen bg-black overflow-x-hidden">
+      <FullscreenPdfModal
+        isOpen={isResearchOpen}
+        pdfUrl="/docs/VentrixforInfoM.pdf"
+        onClose={() => setIsResearchOpen(false)}
+      />
 
       {/* ── BACKGROUND ───────────────────────────────────── */}
       <div className="absolute inset-0 z-0 pointer-events-none select-none">
@@ -135,7 +158,7 @@ export default function Home() {
         ════════════════════════════════════════════════ */}
         <header className="w-full px-12">
           <div className="max-w-[1280px] mx-auto flex items-center justify-between py-6">
-            <a href="/">
+            <Link href="/">
               <Image
                 src={logoImg}
                 alt="Ventrix"
@@ -143,7 +166,7 @@ export default function Home() {
                 style={{ width: "auto", height: "38px" }}
                 priority
               />
-            </a>
+            </Link>
 
             <nav className="hidden md:flex items-center gap-8">
               {NAV_LINKS.map(({ label, href }) => (
@@ -157,12 +180,6 @@ export default function Home() {
               ))}
             </nav>
 
-            <a
-              href="#contact"
-              className="hidden md:flex items-center bg-[#121212] hover:bg-[#1a1a1a] border border-white/10 text-white text-[15px] font-semibold rounded-[10px] px-5 py-3 tracking-[-0.04em] transition-colors duration-200"
-            >
-              Связаться
-            </a>
           </div>
         </header>
 
@@ -173,7 +190,7 @@ export default function Home() {
           <div className="max-w-[1280px] w-full mx-auto flex-1 flex flex-col">
 
             {/* Text block */}
-            <div className="px-10 pt-[100px]">
+            <div className="relative z-10 px-10 pt-[100px]">
               <p className="text-[13px] font-semibold uppercase tracking-[0.04em] text-[#bababa] mb-7">
                 ВИ* — Вихреиндуцированный
               </p>
@@ -195,31 +212,36 @@ export default function Home() {
               <div className="flex flex-wrap items-end justify-between gap-8">
                 <p
                   className="text-[20px] leading-[1.4em] tracking-[-0.04em] text-[#bababa] max-w-[600px]"
-                  style={{ textWrap: "balance" } as React.CSSProperties}
+                  style={{ textWrap: "balance" } as CSSProperties}
                 >
                   Получайте чистую энергию из вихреиндуцированных колебаний —
                   без лопастей, без шума, без вреда для природы.
                 </p>
 
                 <div className="flex gap-3 shrink-0">
-                  <a
-                    href="#problem"
+                  <button
+                    type="button"
+                    onClick={() => setIsResearchOpen(true)}
                     className="bg-[#365EFF] hover:bg-[#4D70FF] text-white text-[15px] font-semibold rounded-[10px] px-5 py-3 tracking-[-0.04em] transition-colors duration-200"
                   >
                     Узнать больше
-                  </a>
-                  <a
-                    href="#contact"
+                  </button>
+                  <button
+                    type="button"
+                    onClick={scrollToFooter}
                     className="bg-[#121212] hover:bg-[#1a1a1a] text-white text-[15px] font-semibold rounded-[10px] px-5 py-3 tracking-[-0.04em] transition-colors duration-200"
                   >
                     Связаться
-                  </a>
+                  </button>
                 </div>
               </div>
             </div>
 
             {/* Hero turbine group — single combined image, large */}
-            <div className="relative flex justify-center" style={{ marginTop: "-220px" }}>
+            <div
+              className="relative z-0 flex justify-center pointer-events-none select-none"
+              style={{ marginTop: "-220px" }}
+            >
               <Image
                 src={heroGroupImg}
                 alt="ВИ*-Ветрогенератор"
@@ -653,13 +675,14 @@ export default function Home() {
               </div>
 
               {/* Right — CTA button */}
-              <a
-                href="#"
+              <button
+                type="button"
+                onClick={() => setIsResearchOpen(true)}
                 className="shrink-0 flex items-center text-white text-[15px] font-semibold uppercase tracking-[0.05em] rounded-xl px-7 py-4 transition-colors duration-200 hover:bg-white/10 bg-white/5"
                 style={{ border: "1px solid rgba(255,255,255,0.18)" }}
               >
-                Загрузить наше исследование
-              </a>
+                Наше исследование
+              </button>
 
             </div>
           </div>
